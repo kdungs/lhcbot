@@ -53,6 +53,8 @@ class SimpleBot:
 
     def respond(self, request):
         chat_id, command = parse_request(request)
+        if chat_id is None or command is None:
+            return None
         response = self.handle(command, request)
         if response is None:
             return None
